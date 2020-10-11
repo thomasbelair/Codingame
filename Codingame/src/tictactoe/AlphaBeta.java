@@ -24,7 +24,7 @@ public class AlphaBeta extends AlgoRecherche{
         currentJoueur = joueur1;     // Le joueur1 commence la partie.
     }
     
-    public float alphabeta (Plateau  _plateau, int depth, Joueur _joueur) {
+    public float alphabeta (Plateau  _plateau, int depth, float alpha, float beta, Joueur _joueur) {
 		float score = 0;
 		_plateau.partieGagnee();
     	Joueur resultat = _plateau.vainqueur();
@@ -45,9 +45,11 @@ public class AlphaBeta extends AlgoRecherche{
             int i;
             for(i = 0 ; i < coupsPossibles.size(); i++) {
             	_plateau.joueCoup(coupsPossibles.get(i));
-            	score1 = alphabeta(_plateau, depth - 1, joueur2);
+            	score1 = alphabeta(_plateau, depth - 1, alpha, beta, joueur2);
             	_plateau.annuleDernierCoup();
             	bestScore = Math.max(score1, bestScore);
+            	alpha = Math.max(alpha, score1);
+            	if (beta <= alpha) break;
             }
             return bestScore;
     	}
@@ -58,9 +60,11 @@ public class AlphaBeta extends AlgoRecherche{
             int i;
             for(i = 0 ; i < coupsPossibles.size(); i++) {
             	_plateau.joueCoup(coupsPossibles.get(i));
-            	score1 = alphabeta(_plateau, depth - 1, joueur1);
+            	score1 = alphabeta(_plateau, depth - 1, alpha, beta, joueur1);
             	_plateau.annuleDernierCoup();
             	bestScore = Math.min(score1, bestScore);
+            	beta = Math.min(beta, score1);
+            	if (beta <= alpha) break;
             }
             return bestScore;
     	}
@@ -80,7 +84,7 @@ public class AlphaBeta extends AlgoRecherche{
         int i;
         for(i = 0 ; i < coups.size(); i++) {
         	_plateau.joueCoup(coups.get(i));
-        	score = alphabeta(_plateau, 1, joueur2);
+        	score = alphabeta(_plateau, 3, -10000, 10000, joueur2);
         	_plateau.annuleDernierCoup();
 
         	if (score > bestScore) {
