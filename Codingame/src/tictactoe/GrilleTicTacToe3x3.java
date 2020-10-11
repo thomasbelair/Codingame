@@ -49,7 +49,8 @@ public class GrilleTicTacToe3x3 extends Plateau {
     @Override
     public void annuleDernierCoup() {
         nbCoupJoue--;                
-        grille[dernierCoup[nbCoupJoue].getColonne()][dernierCoup[nbCoupJoue].getLigne()] = null;   
+        grille[dernierCoup[nbCoupJoue].getColonne()][dernierCoup[nbCoupJoue].getLigne()] = null;
+        vainqueur = null;
     }
 
     @Override

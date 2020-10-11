@@ -23,9 +23,9 @@ public class Player {
         // Créer une nouvelle classe qui hérite de la class AlgoRecherche
         //AlgoRechercheAleatoire alea  = new AlgoRechercheAleatoire( );   // L'ordinateur joue au hasard
         //AlgoRechercheAleatoire alea2  = new AlgoRechercheAleatoire( );
-        AlphaBeta al = new AlphaBeta( );
+        AlphaBeta al = new AlphaBeta(joueurOrdi, humain);
         
-        joueurOrdi.setAlgoRecherche(al/*ea*/);                      
+        joueurOrdi.setAlgoRecherche(al);                      
         //joueurOrdi2.setAlgoRecherche(alea2);
              
         GrilleTicTacToe3x3 grille = new GrilleTicTacToe3x3();
