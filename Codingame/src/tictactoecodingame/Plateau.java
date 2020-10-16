@@ -1,4 +1,4 @@
-package tictactoe;
+package tictactoecodingame;
 
 import java.util.ArrayList;
 
