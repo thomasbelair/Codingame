@@ -30,7 +30,7 @@ public class AlphaBeta extends AlgoRecherche{
     	Joueur resultat = _plateau.vainqueur();
     	if (depth == 0 || resultat != null) {
 			if (resultat == joueur1 ) {
-				score = 1;
+				score = 1*(depth + 1);
 			}
 			if (resultat == joueur2 ) {
 				score = -1;

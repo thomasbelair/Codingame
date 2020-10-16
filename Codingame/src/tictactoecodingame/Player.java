@@ -14,23 +14,23 @@ public class Player {
         
         JoueurHumain humain = new JoueurHumain("Humain");
     	
-        JoueurOrdi joueurOrdi = new JoueurOrdi("Alpha");
+        JoueurOrdi joueurAlpha = new JoueurOrdi("Alpha");
         
-        JoueurOrdi joueurOrdi2 = new JoueurOrdi("Ordi2");
+        JoueurOrdi joueurAlea = new JoueurOrdi("ALEA");
        
         
         // Remplacer ici l'algorithme aléatoire par votre algorithme. 
         // Créer une nouvelle classe qui hérite de la class AlgoRecherche
         //AlgoRechercheAleatoire alea  = new AlgoRechercheAleatoire( );   // L'ordinateur joue au hasard
         AlgoRechercheAleatoire alea2  = new AlgoRechercheAleatoire( );
-        AlphaBeta alpha = new AlphaBeta(joueurOrdi, humain);
+        AlphaBeta alpha = new AlphaBeta(joueurAlpha, humain);
         
-        joueurOrdi.setAlgoRecherche(alpha);                      
-        joueurOrdi2.setAlgoRecherche(alea2);
+        joueurAlpha.setAlgoRecherche(alpha);                      
+        joueurAlea.setAlgoRecherche(alea2);
              
-        GrilleTicTacToe3x3 grille = new GrilleTicTacToe3x3();
+        GrilleTicTacToe9x9 grille = new GrilleTicTacToe9x9();
          
-        Arbitre a = new Arbitre(grille, joueurOrdi , humain);
+        Arbitre a = new Arbitre(grille, joueurAlpha , joueurAlea);
        
         a.startNewGame(true);    // Demarre une partie en affichant la grille du jeu
        
