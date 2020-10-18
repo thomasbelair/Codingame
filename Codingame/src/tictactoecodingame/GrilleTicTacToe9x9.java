@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class GrilleTicTacToe9x9 extends Plateau {
 
     Jeton[][] grille9x9 = new Jeton[9][9];
-    Jeton[][] grille3x3 = new Jeton[3][3];  // indique si un joueur à gagné un case de la grande grille
+    Jeton[][] grille3x3 = new Jeton[3][3];  // indique si un joueur à gagné une case de la grande grille
 
     Jeton[][][] grille9x9Sav = new Jeton[100][9][9];  // Pour sauvegarder la position. 100 positions Max
     Jeton[][][] grille3x3Sav = new Jeton[100][3][3];  // Pour sauvegarder la position

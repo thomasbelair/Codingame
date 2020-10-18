@@ -16,7 +16,7 @@ public class Player {
     	
         JoueurOrdi joueurAlpha = new JoueurOrdi("Alpha");
         
-        JoueurOrdi joueurAlea = new JoueurOrdi("ALEA");
+        JoueurOrdi joueurAlea2 = new JoueurOrdi("ALEA");
        
         
         // Remplacer ici l'algorithme aléatoire par votre algorithme. 
@@ -26,11 +26,11 @@ public class Player {
         AlphaBeta alpha = new AlphaBeta(joueurAlpha, humain);
         
         joueurAlpha.setAlgoRecherche(alpha);                      
-        joueurAlea.setAlgoRecherche(alea2);
+        joueurAlea2.setAlgoRecherche(alea2);
              
-        GrilleTicTacToe9x9 grille = new GrilleTicTacToe9x9();
+        GrilleTicTacToe3x3 grille = new GrilleTicTacToe3x3();
          
-        Arbitre a = new Arbitre(grille, joueurAlpha , joueurAlea);
+        Arbitre a = new Arbitre(grille, joueurAlpha , joueurAlea2);
        
         a.startNewGame(true);    // Demarre une partie en affichant la grille du jeu
        
