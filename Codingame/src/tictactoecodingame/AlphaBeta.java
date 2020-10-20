@@ -69,7 +69,7 @@ public class AlphaBeta extends AlgoRecherche{
     	}*/
     	if (_joueur == joueur1) {
     		float score1 = 0;
-    		float bestScore = -10000;
+    		float bestScore = -1000000;
     		ArrayList<Coup> coupsPossibles = _plateau.getListeCoups(_joueur);
             int i;
             for(i = 0 ; i < coupsPossibles.size(); i++) {
@@ -84,7 +84,7 @@ public class AlphaBeta extends AlgoRecherche{
     	}
     	else {
     		float score1 = 0;
-    		float bestScore = 10000;
+    		float bestScore = 1000000;
     		ArrayList<Coup> coupsPossibles = _plateau.getListeCoups(_joueur);
             int i;
             for(i = 0 ; i < coupsPossibles.size(); i++) {
@@ -106,15 +106,15 @@ public class AlphaBeta extends AlgoRecherche{
     @Override
     public Coup meilleurCoup(Plateau  _plateau, Joueur _joueur, boolean _ponder) {
     	//b=b+2;
-    	float bestScore =-10000;
-    	float score = -10000;
+    	float bestScore =-1000000;
+    	float score = -1000000;
     	Coup bestMove = null;
     	
         ArrayList<Coup> coups = _plateau.getListeCoups(_joueur);
         int i;
         for(i = 0 ; i < coups.size(); i++) {
         	_plateau.joueCoup(coups.get(i));
-        	score = alphabeta(_plateau, 3, -1000000, 1000000, joueur2);
+        	score = alphabeta(_plateau, 9, -1000000, 1000000, joueur2);
         	_plateau.annuleDernierCoup();
 
         	if (score > bestScore) {
