@@ -17,7 +17,7 @@ public class AlphaBeta extends AlgoRecherche{
 	Joueur joueur1;         // Joueur qui commence la partie
     Joueur joueur2;         // Adversaire
     Joueur currentJoueur;   // C'est à son tour de jouer
-    Jeton[][] grille3x3;
+    //Jeton[][] grille3x3;
     //boolean[] grilleGagneeSav;
     //int b = -1;
 
@@ -31,8 +31,8 @@ public class AlphaBeta extends AlgoRecherche{
     
     public float alphabeta (Plateau  _plateau, int depth, float alpha, float beta, Joueur _joueur) {
     	float score = 0;
-    	Joueur resultat = _plateau.vainqueur();
-    	if (depth == 0 || _plateau.partieTerminee() == true || resultat != null) {
+    	if (depth <= 0 || _plateau.partieTerminee() == true) {
+    		Joueur resultat = _plateau.vainqueur();
 			if (resultat == joueur1 ) {
 				score = 10000*(depth + 1);
 			}
@@ -114,7 +114,7 @@ public class AlphaBeta extends AlgoRecherche{
         int i;
         for(i = 0 ; i < coups.size(); i++) {
         	_plateau.joueCoup(coups.get(i));
-        	score = alphabeta(_plateau, 5, -10000, 10000, joueur2);
+        	score = alphabeta(_plateau, 3, -1000000, 1000000, joueur2);
         	_plateau.annuleDernierCoup();
 
         	if (score > bestScore) {
