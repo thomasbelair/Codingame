@@ -17,16 +17,16 @@ public class AlphaBeta extends AlgoRecherche{
 	Joueur joueur1;         // Joueur qui commence la partie
     Joueur joueur2;         // Adversaire
     Joueur currentJoueur;   // C'est à son tour de jouer
-    //Jeton[][] grille3x3;
-    //boolean[] grilleGagneeSav;
-    //int b = -1;
+    Jeton[][] grille3x3;
+    boolean[] grilleGagneeSav;
+    public static int b = -1;
 
     public AlphaBeta(GrilleTicTacToe9x9 _plateau, Joueur _joueur1, Joueur _joueur2) {
         joueur1 = _joueur1;
         joueur2 = _joueur2;
         currentJoueur = joueur1;     // Le joueur1 commence la partie.
-        //Jeton[][] grille3x3 = _plateau.grille3x3;
-        //boolean[] grilleGagneeSav = _plateau.grilleGagneeSav;
+        Jeton[][] grille3x3 = _plateau.grille3x3;
+        boolean[] grilleGagneeSav = _plateau.grilleGagneeSav;
     }
     
     public float alphabeta (Plateau  _plateau, int depth, float alpha, float beta, Joueur _joueur) {
@@ -41,7 +41,7 @@ public class AlphaBeta extends AlgoRecherche{
 			}
 		return score;
     	}
-    	/*if (grilleGagneeSav[b] == true) {
+    	if (grilleGagneeSav[b] == true) {
     		if(grille3x3[1][1] != null) {
     			if (grille3x3[1][1].getJoueur().getIdJoueur() == 1) {
     				score = 1000*(depth + 1);
@@ -66,7 +66,8 @@ public class AlphaBeta extends AlgoRecherche{
     				score = -10*(depth + 1);
     			}
     		}
-    	}*/
+    		return score;
+    	}
     	if (_joueur == joueur1) {
     		float score1 = 0;
     		float bestScore = -1000000;
@@ -97,15 +98,10 @@ public class AlphaBeta extends AlgoRecherche{
             }
             return bestScore;
     	}
-    	
-    	
-    }
-    
-    
+    } 
     
     @Override
     public Coup meilleurCoup(Plateau  _plateau, Joueur _joueur, boolean _ponder) {
-    	//b=b+2;
     	float bestScore =-1000000;
     	float score = -1000000;
     	Coup bestMove = null;
@@ -121,9 +117,9 @@ public class AlphaBeta extends AlgoRecherche{
         		bestScore = score;
 				bestMove = coups.get(i);
         	}
-        }
+        }  
 		return bestMove;  
-    }  
+    }
 }
         
     

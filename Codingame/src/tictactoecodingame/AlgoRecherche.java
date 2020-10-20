@@ -17,5 +17,4 @@ public abstract class AlgoRecherche {
          */
 	abstract public Coup meilleurCoup( Plateau _plateau , Joueur _joueur , boolean _ponder );
 	
-//test
 }

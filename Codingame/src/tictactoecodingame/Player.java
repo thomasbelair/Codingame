@@ -34,7 +34,7 @@ public class Player {
         //a.startNewGame(true);    // Demarre une partie en affichant la grille du jeu
        
        // Pour lancer un tournooi de 100 parties en affichant la grille du jeu
-       a.startTournament(300 , false);
+       a.startTournament(300 , true);
         
     }
 }
