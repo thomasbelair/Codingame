@@ -25,7 +25,7 @@ public class GrilleTicTacToe9x9 extends Plateau {
     CoupTicTacToe dernierCoupSav;
     Joueur vainqueur;
     boolean grilleGagnee;
-    boolean[] grilleGagneeSav;  // vrai si dernier coup gagne une grille
+    public static boolean[] grilleGagneeSav;  // vrai si dernier coup gagne une grille
 
     @Override
     public void init() {

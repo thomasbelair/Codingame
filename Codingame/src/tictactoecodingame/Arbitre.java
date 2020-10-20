@@ -37,8 +37,6 @@ public class Arbitre {
                     System.out.println(currentJoueur + " ( " +currentJoueur.getIdJoueur() + "  )  joue : " );
                 }
                 coup = currentJoueur.joue(plateau);
-            	AlphaBeta.b++;
-            	System.out.println("tour numéro " + AlphaBeta.b);
 
                 if (!plateau.isValide(coup)) {
                     if ( _trace )
@@ -59,10 +57,6 @@ public class Arbitre {
             } else {
                 currentJoueur = joueur1;
             }
-        }
-        
-        if(plateau.partieTerminee()) {
-        	AlphaBeta.b = -1;
         }
         
         Joueur vainqueur = plateau.vainqueur();

@@ -18,7 +18,8 @@ public class AlphaBeta extends AlgoRecherche{
     Joueur joueur2;         // Adversaire
     Joueur currentJoueur;   // C'est à son tour de jouer
     Jeton[][] grille3x3;
-    boolean[] grilleGagneeSav;
+    //boolean[] grilleGagneeSav;
+    int nbCoupJoue;
     public static int b = -1;
 
     public AlphaBeta(GrilleTicTacToe9x9 _plateau, Joueur _joueur1, Joueur _joueur2) {
@@ -26,7 +27,11 @@ public class AlphaBeta extends AlgoRecherche{
         joueur2 = _joueur2;
         currentJoueur = joueur1;     // Le joueur1 commence la partie.
         Jeton[][] grille3x3 = _plateau.grille3x3;
+        
+        
+        
         boolean[] grilleGagneeSav = _plateau.grilleGagneeSav;
+        int nbCoupJoue = _plateau.nbCoupJoue;
     }
     
     public float alphabeta (Plateau  _plateau, int depth, float alpha, float beta, Joueur _joueur) {
@@ -41,12 +46,12 @@ public class AlphaBeta extends AlgoRecherche{
 			}
 		return score;
     	}
-    	if (grilleGagneeSav[b] == true) {
+    	if (GrilleTicTacToe9x9.grilleGagneeSav[nbCoupJoue] == true) {
     		if(grille3x3[1][1] != null) {
     			if (grille3x3[1][1].getJoueur().getIdJoueur() == 1) {
     				score = 1000*(depth + 1);
     			}
-    			if (grille3x3[1][1].getJoueur().getIdJoueur() == 2 ) {
+    			if (grille3x3[1][1].getJoueur().getIdJoueur() == 0 ) {
     				score = -1000*(depth + 1);
     			}
     		}
@@ -54,7 +59,7 @@ public class AlphaBeta extends AlgoRecherche{
     			if (grille3x3[0][0].getJoueur().getIdJoueur() == 1 || grille3x3[0][2].getJoueur().getIdJoueur() == 1 || grille3x3[2][0].getJoueur().getIdJoueur() == 1 || grille3x3[2][2].getJoueur().getIdJoueur() == 1) {
     				score = 100*(depth + 1);
     			}
-    			if (grille3x3[0][0].getJoueur().getIdJoueur() == 2 || grille3x3[0][2].getJoueur().getIdJoueur() == 2 || grille3x3[2][0].getJoueur().getIdJoueur() == 2 || grille3x3[2][2].getJoueur().getIdJoueur() == 2) {
+    			if (grille3x3[0][0].getJoueur().getIdJoueur() == 0 || grille3x3[0][2].getJoueur().getIdJoueur() == 0 || grille3x3[2][0].getJoueur().getIdJoueur() == 0 || grille3x3[2][2].getJoueur().getIdJoueur() == 0) {
     				score = -100*(depth + 1);
     			}
     		}
@@ -62,7 +67,7 @@ public class AlphaBeta extends AlgoRecherche{
     			if (grille3x3[1][0].getJoueur().getIdJoueur() == 1 || grille3x3[0][1].getJoueur().getIdJoueur() == 1 || grille3x3[2][1].getJoueur().getIdJoueur() == 1 || grille3x3[1][2].getJoueur().getIdJoueur() == 1) {
     				score = 10*(depth + 1);
     			}
-    			if (grille3x3[1][0].getJoueur().getIdJoueur() == 2 || grille3x3[0][1].getJoueur().getIdJoueur() == 2 || grille3x3[2][1].getJoueur().getIdJoueur() == 2 || grille3x3[1][2].getJoueur().getIdJoueur() == 2) {
+    			if (grille3x3[1][0].getJoueur().getIdJoueur() == 0 || grille3x3[0][1].getJoueur().getIdJoueur() == 0 || grille3x3[2][1].getJoueur().getIdJoueur() == 0 || grille3x3[1][2].getJoueur().getIdJoueur() == 0) {
     				score = -10*(depth + 1);
     			}
     		}
