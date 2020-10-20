@@ -84,8 +84,8 @@ public class Arbitre {
             if ( vainqueur == joueur2 ) nbVictoire[1]++;
             
             if ( vainqueur == null ) {
-                nbVictoire[0]+=0.5;
-                nbVictoire[1]+=0.5;
+                nbVictoire[0]+=0;
+                nbVictoire[1]+=0;
             }
 
             if ( numJoueur == 0  )  {              

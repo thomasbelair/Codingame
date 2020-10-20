@@ -79,7 +79,8 @@ public class GrilleTicTacToe9x9 extends Plateau {
         nbCoupJoue--;
         grille9x9[dernierCoup[nbCoupJoue].getColonne()][dernierCoup[nbCoupJoue].getLigne()] = null;
         grilleGagnee = grilleGagneeSav[nbCoupJoue];
-        grille3x3[dernierCoup[nbCoupJoue].getColonne() / 3][dernierCoup[nbCoupJoue].getLigne() / 3] = null;        
+        grille3x3[dernierCoup[nbCoupJoue].getColonne() / 3][dernierCoup[nbCoupJoue].getLigne() / 3] = null;
+        vainqueur = null;
     }
 
     @Override
