@@ -18,7 +18,7 @@ public class Player {
         
         JoueurOrdi joueurAlea2 = new JoueurOrdi("ALEA");
        
-        GrilleTicTacToe3x3 grille = new GrilleTicTacToe3x3();
+        GrilleTicTacToe9x9 grille = new GrilleTicTacToe9x9();
         
         // Remplacer ici l'algorithme aléatoire par votre algorithme. 
         // Créer une nouvelle classe qui hérite de la class AlgoRecherche
@@ -34,7 +34,7 @@ public class Player {
         //a.startNewGame(true);    // Demarre une partie en affichant la grille du jeu
        
        // Pour lancer un tournooi de 100 parties en affichant la grille du jeu
-       a.startTournament(300 , true);
+       a.startTournament(300 , false);
         
     }
 }

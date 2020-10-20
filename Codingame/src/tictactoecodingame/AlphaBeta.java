@@ -21,7 +21,7 @@ public class AlphaBeta extends AlgoRecherche{
     //boolean[] grilleGagneeSav;
     //int b = -1;
 
-    public AlphaBeta(GrilleTicTacToe3x3 _plateau, Joueur _joueur1, Joueur _joueur2) {
+    public AlphaBeta(GrilleTicTacToe9x9 _plateau, Joueur _joueur1, Joueur _joueur2) {
         joueur1 = _joueur1;
         joueur2 = _joueur2;
         currentJoueur = joueur1;     // Le joueur1 commence la partie.
@@ -114,7 +114,7 @@ public class AlphaBeta extends AlgoRecherche{
         int i;
         for(i = 0 ; i < coups.size(); i++) {
         	_plateau.joueCoup(coups.get(i));
-        	score = alphabeta(_plateau, 9, -1000000, 1000000, joueur2);
+        	score = alphabeta(_plateau, 3, -1000000, 1000000, joueur2);
         	_plateau.annuleDernierCoup();
 
         	if (score > bestScore) {
