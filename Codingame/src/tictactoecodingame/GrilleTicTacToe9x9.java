@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class GrilleTicTacToe9x9 extends Plateau {
 
     Jeton[][] grille9x9 = new Jeton[9][9];
-    Jeton[][] grille3x3 = new Jeton[3][3];  // indique si un joueur à gagné une case de la grande grille
+    Jeton[][] grille3x3 = new Jeton[3][3];  // indique si un joueur Ã  gagnÃ© une case de la grande grille
 
     Jeton[][][] grille9x9Sav = new Jeton[100][9][9];  // Pour sauvegarder la position. 100 positions Max
     Jeton[][][] grille3x3Sav = new Jeton[100][3][3];  // Pour sauvegarder la position
@@ -25,7 +25,7 @@ public class GrilleTicTacToe9x9 extends Plateau {
     CoupTicTacToe dernierCoupSav;
     Joueur vainqueur;
     boolean grilleGagnee;
-    boolean[] grilleGagneeSav;  // vrai si dernier coup gagne une grille
+    public static boolean[] grilleGagneeSav;  // vrai si dernier coup gagne une grille
 
     @Override
     public void init() {
@@ -79,7 +79,8 @@ public class GrilleTicTacToe9x9 extends Plateau {
         nbCoupJoue--;
         grille9x9[dernierCoup[nbCoupJoue].getColonne()][dernierCoup[nbCoupJoue].getLigne()] = null;
         grilleGagnee = grilleGagneeSav[nbCoupJoue];
-        grille3x3[dernierCoup[nbCoupJoue].getColonne() / 3][dernierCoup[nbCoupJoue].getLigne() / 3] = null;        
+        grille3x3[dernierCoup[nbCoupJoue].getColonne() / 3][dernierCoup[nbCoupJoue].getLigne() / 3] = null;
+        vainqueur = null;
     }
 
     @Override
@@ -110,9 +111,9 @@ public class GrilleTicTacToe9x9 extends Plateau {
      * Regarde si le joueur vient de gagner sur une case en 3x3
      *
      * @param _grille soit la grille 9x9 soit la grille 3x3
-     * @param _x0 x min de la grille à analyser
-     * @param _y0 y min de la grille à analyser
-     * @param _coupX où le joueur a joué
+     * @param _x0 x min de la grille Ã  analyser
+     * @param _y0 y min de la grille Ã  analyser
+     * @param _coupX oÃ¹ le joueur a jouÃ©
      * @param _coupY
      * @return
      */
@@ -143,7 +144,7 @@ public class GrilleTicTacToe9x9 extends Plateau {
                 y += dir[d][1];
             }
 
-            //regarde dans la direction opposée
+            //regarde dans la direction opposÃ©e
             x = _coupX;
             y = _coupY;
             nbJetonAligne--;
@@ -176,7 +177,7 @@ public class GrilleTicTacToe9x9 extends Plateau {
             }
         }
 
-        // Compte le nombre de cases remportées par chaque joueur
+        // Compte le nombre de cases remportÃ©es par chaque joueur
         if (isGrillePleine()) {
             int[] nbCase = new int[2];
             Joueur[] joueur = new Joueur[2];
@@ -231,7 +232,7 @@ public class GrilleTicTacToe9x9 extends Plateau {
             
             for (int c = x0; c < x0 + 3; c++) {
                 for (int l = y0; l < y0 + 3; l++) {                   
-                    if ( grille3x3[(c/3)][(l/3)] != null ) continue;   // on ne peut pas jouer dans une grille gagnée
+                    if ( grille3x3[(c/3)][(l/3)] != null ) continue;   // on ne peut pas jouer dans une grille gagnÃ©e
                     
                     if (grille9x9[c][l] == null) {
                         listeCoups.add(new CoupTicTacToe(c, l, new Jeton(_joueur)));
@@ -243,7 +244,7 @@ public class GrilleTicTacToe9x9 extends Plateau {
         if (listeCoups.isEmpty()) {
             for (int c = 0; c < this.getNbColonnes(); c++) {
                 for (int l = 0; l < this.getNbLignes(); l++) {
-                    if ( grille3x3[(c/3)][(l/3)] != null ) continue;   // on ne peut pas jouer dans une grille gagnée
+                    if ( grille3x3[(c/3)][(l/3)] != null ) continue;   // on ne peut pas jouer dans une grille gagnÃ©e
                     if (grille9x9[c][l] == null) {
                         listeCoups.add(new CoupTicTacToe(c, l, new Jeton(_joueur)));
                     }
@@ -268,7 +269,7 @@ public class GrilleTicTacToe9x9 extends Plateau {
         
         for (int c = x0; c < x0+3 ; c++) {
                 for (int l = y0; l < y0+3 ; l++) {
-                    if ( grille3x3[c/3][l/3] != null ) continue;  // les grilles gagneés sont pleines
+                    if ( grille3x3[c/3][l/3] != null ) continue;  // les grilles gagneÃ©s sont pleines
                     if ( grille9x9[c][l] == null ) {
                         grillePleine = false;
                         break;
@@ -335,7 +336,7 @@ public class GrilleTicTacToe9x9 extends Plateau {
     private boolean isGrillePleine() {
         for (int c = 0; c < this.getNbColonnes(); c++) {
             for (int l = 0; l < this.getNbLignes(); l++) {
-                if ( grille3x3[c/3][l/3] != null ) continue;  // les grilles gagnées sont pleines
+                if ( grille3x3[c/3][l/3] != null ) continue;  // les grilles gagnÃ©es sont pleines
                 
                 if (grille9x9[c][l] == null) {
                     return false;
