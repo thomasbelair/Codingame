@@ -11,13 +11,13 @@ import java.util.ArrayList;
  *
  * @author thomas.bélair
  */
-public class AlphaBeta extends AlgoRecherche{
+public class AlphaBetaPrio extends AlgoRecherche{
 	
 	Joueur joueur1;         // Joueur qui commence la partie
     Joueur joueur2;         // Adversaire
     Joueur currentJoueur;   // C'est à son tour de jouer
 
-    public AlphaBeta(GrilleTicTacToe9x9 _plateau, Joueur _joueur1, Joueur _joueur2) {
+    public AlphaBetaPrio(GrilleTicTacToe9x9 _plateau, Joueur _joueur1, Joueur _joueur2) {
         joueur1 = _joueur1;
         joueur2 = _joueur2;
         currentJoueur = joueur1;     // Le joueur1 commence la partie.
@@ -64,10 +64,10 @@ public class AlphaBeta extends AlgoRecherche{
 	    				score = -100*(depth + 1);
 	    				return score;
 	    			}
-	    			if (((GrilleTicTacToe9x9)_plateau).grille3x3[1][1].getJoueur().getIdJoueur() == 0) {
+	    			/*if (((GrilleTicTacToe9x9)_plateau).grille3x3[1][1].getJoueur().getIdJoueur() == 0) {
 	    				score = 100*(depth + 1);
 	    				return score;
-	    			}
+	    			}*/
     			}
     		}
     		
@@ -79,10 +79,10 @@ public class AlphaBeta extends AlgoRecherche{
 	    				score = -10*(depth + 1);
 	    				return score;
 	    			}
-	    			if (((GrilleTicTacToe9x9)_plateau).grille3x3[0][0].getJoueur().getIdJoueur() == 0) {
+	    			/*if (((GrilleTicTacToe9x9)_plateau).grille3x3[0][0].getJoueur().getIdJoueur() == 0) {
 	    				score = 10*(depth + 1);
 	    				return score;
-	    			}
+	    			}*/
     			}
     		}
     		if(((GrilleTicTacToe9x9)_plateau).grille3x3[0][2] != null) {
@@ -91,10 +91,10 @@ public class AlphaBeta extends AlgoRecherche{
 	    				score = -10*(depth + 1);
 	    				return score;
 	    			}
-	    			if (((GrilleTicTacToe9x9)_plateau).grille3x3[0][2].getJoueur().getIdJoueur() == 0) {
+	    			/*if (((GrilleTicTacToe9x9)_plateau).grille3x3[0][2].getJoueur().getIdJoueur() == 0) {
 	    				score = 10*(depth + 1);
 	    				return score;
-	    			}
+	    			}*/
     			}
     		}
     		if(((GrilleTicTacToe9x9)_plateau).grille3x3[2][0] != null) {
@@ -103,10 +103,10 @@ public class AlphaBeta extends AlgoRecherche{
 	    				score = -10*(depth + 1);
 	    				return score;
 	    			}
-	    			if (((GrilleTicTacToe9x9)_plateau).grille3x3[2][0].getJoueur().getIdJoueur() == 0) {
+	    			/*if (((GrilleTicTacToe9x9)_plateau).grille3x3[2][0].getJoueur().getIdJoueur() == 0) {
 	    				score = 10*(depth + 1);
 	    				return score;
-	    			}
+	    			}*/
     			}
     		}
     		if(((GrilleTicTacToe9x9)_plateau).grille3x3[2][2] != null) {
@@ -115,10 +115,10 @@ public class AlphaBeta extends AlgoRecherche{
 	    				score = -10*(depth + 1);
 	    				return score;
 	    			}
-	    			if (((GrilleTicTacToe9x9)_plateau).grille3x3[2][2].getJoueur().getIdJoueur() == 0) {
+	    			/*if (((GrilleTicTacToe9x9)_plateau).grille3x3[2][2].getJoueur().getIdJoueur() == 0) {
 	    				score = 10*(depth + 1);
 	    				return score;
-	    			}
+	    			}*/
     			}
     		}
     		
@@ -130,10 +130,10 @@ public class AlphaBeta extends AlgoRecherche{
 	    				score = -1*(depth + 1);
 	    				return score;
 	    			}
-	    			if (((GrilleTicTacToe9x9)_plateau).grille3x3[1][0].getJoueur().getIdJoueur() == 0) {
+	    			/*if (((GrilleTicTacToe9x9)_plateau).grille3x3[1][0].getJoueur().getIdJoueur() == 0) {
 	    				score = 1*(depth + 1);
 	    				return score;
-	    			}
+	    			}*/
     			}
     		}
     		if(((GrilleTicTacToe9x9)_plateau).grille3x3[0][1] != null) {
@@ -142,10 +142,10 @@ public class AlphaBeta extends AlgoRecherche{
 	    				score = -1*(depth + 1);
 	    				return score;
 	    			}
-	    			if (((GrilleTicTacToe9x9)_plateau).grille3x3[0][1].getJoueur().getIdJoueur() == 0) {
+	    			/*if (((GrilleTicTacToe9x9)_plateau).grille3x3[0][1].getJoueur().getIdJoueur() == 0) {
 	    				score = 1*(depth + 1);
 	    				return score;
-	    			}
+	    			}*/
     			}
     		}
     		if(((GrilleTicTacToe9x9)_plateau).grille3x3[2][1] != null) {
@@ -154,10 +154,10 @@ public class AlphaBeta extends AlgoRecherche{
 	    				score = -1*(depth + 1);
 	    				return score;
 	    			}
-	    			if (((GrilleTicTacToe9x9)_plateau).grille3x3[2][1].getJoueur().getIdJoueur() == 0) {
+	    			/*if (((GrilleTicTacToe9x9)_plateau).grille3x3[2][1].getJoueur().getIdJoueur() == 0) {
 	    				score = 1*(depth + 1);
 	    				return score;
-	    			}
+	    			}*/
     			}
     		}
     		if(((GrilleTicTacToe9x9)_plateau).grille3x3[1][2] != null) {
@@ -166,10 +166,10 @@ public class AlphaBeta extends AlgoRecherche{
 	    				score = -1*(depth + 1);
 	    				return score;
 	    			}
-	    			if (((GrilleTicTacToe9x9)_plateau).grille3x3[1][2].getJoueur().getIdJoueur() == 0) {
+	    			/*if (((GrilleTicTacToe9x9)_plateau).grille3x3[1][2].getJoueur().getIdJoueur() == 0) {
 	    				score = 1*(depth + 1);
 	    				return score;
-	    			}
+	    			}*/
     			}
     		}
     		//*********************************PRIO***********************************/
@@ -183,27 +183,13 @@ public class AlphaBeta extends AlgoRecherche{
     		ArrayList<Coup> coupsPossibles = _plateau.getListeCoups(_joueur);
             int i;
             for(i = 0 ; i < coupsPossibles.size(); i++) {
-            	//*********************************COUPE EN PROFONDEUR***********************************// 
-            	
-            	//Il s'agit de la même démarche que pour la partie "COUPE" mais en profondeur
-            	
-            	if(LaTechnique (_plateau, coupsPossibles.get(i))) {            		
-            		score = -10*(depth+1);
-            	}
-            	
-            	//*********************************COUPE EN PROFONDEUR***********************************/ 
-            	
-            	else {
-	            	_plateau.joueCoup(coupsPossibles.get(i));
-	            	score1 = eval(_plateau, depth - 1, alpha, beta, joueur2);
-	            	_plateau.annuleDernierCoup();
-            	}
-	            	
-	            //Coupure Beta
-	            	
-            	bestScore = Math.max(score1, bestScore);
-            	alpha = Math.max(alpha, score1);
-            	if (beta <= alpha) break;
+            	_plateau.joueCoup(coupsPossibles.get(i));
+            	score1 = eval(_plateau, depth - 1, alpha, beta, joueur2);
+            	_plateau.annuleDernierCoup();
+		        //Coupure Beta	
+		    	bestScore = Math.max(score1, bestScore);
+		    	alpha = Math.max(alpha, score1);
+		    	if (beta <= alpha) break;
             }
             return bestScore;
     	}
@@ -216,27 +202,10 @@ public class AlphaBeta extends AlgoRecherche{
     		ArrayList<Coup> coupsPossibles = _plateau.getListeCoups(_joueur);
             int i;
             for(i = 0 ; i < coupsPossibles.size(); i++) {
-            	
-            	//*********************************COUPE EN PROFONDEUR 2***********************************//            	
-            	
-            	//La démarche ici est de pousser notre algorithme à ne pas jouer certaines 
-            	//cases. Celles qui permetteraient à l'adversaire de jouer où il le souhaite.
-            	//On oblige donc l'adversaire à les jouer pour pouvoir jouer où nous le
-            	//souhaitons au prochain tour
-            	
-            	
-            	if(LaTechnique (_plateau, coupsPossibles.get(i))) {            		
-            		score1 = 10*(depth+1);
-            	}
-            	
-            	//*********************************COUPE EN PROFONDEUR 2***********************************//            	
-            	
             	_plateau.joueCoup(coupsPossibles.get(i));
             	score1 = eval(_plateau, depth - 1, alpha, beta, joueur1);
             	_plateau.annuleDernierCoup();
-            	
             	//Coupure alpha
-            	
             	bestScore = Math.min(score1, bestScore);
             	beta = Math.min(beta, score1);
             	if (beta <= alpha) break;
@@ -254,11 +223,9 @@ public class AlphaBeta extends AlgoRecherche{
     	
     	_plateau.sauvegardePosition(((GrilleTicTacToe9x9)_plateau).nbCoupJoue);
     	
-    	
-    	
         ArrayList<Coup> coups = _plateau.getListeCoups(_joueur);
-
-      //*********************************FIRST***********************************//
+        
+        //*********************************FIRST***********************************//
         
         //Cette partie force notre algorithme à jouer dans la case centrale s'il joue en 1er
         
@@ -266,29 +233,15 @@ public class AlphaBeta extends AlgoRecherche{
             return coups.get(40);
         }
         
-      //*********************************FIRST***********************************//        
+        //*********************************FIRST***********************************//
         
         int i;
         for(i = 0 ; i < coups.size(); i++) {
-
-        	//*********************************COUPE***********************************//
-        	
-        	//On pénalise fortement un coup direct qui permetterait à l'adversaire
-        	//de jouer où il le souhaite au tour suivant
-        	
-        	if(LaTechnique (_plateau, coups.get(i))) {            		
-        		score = -900;
-        	}
-        	
-        	//*********************************COUPE***********************************/        	
-        	else {
-        	
-	        	_plateau.joueCoup(coups.get(i));
-	        	//Nous choisissons ici à quelle profondeur nous souhaitons faire évoluer
-	        	//notre fonction d'évaluation
-	        	score = eval(_plateau, 3, Integer.MIN_VALUE, Integer.MAX_VALUE, joueur2);
-	        	_plateau.annuleDernierCoup();
-        	}
+        	_plateau.joueCoup(coups.get(i));
+        	//Nous choisissons ici à quelle profondeur nous souhaitons faire évoluer
+        	//notre fonction d'évaluation
+        	score = eval(_plateau, 3, Integer.MIN_VALUE, Integer.MAX_VALUE, joueur2);
+        	_plateau.annuleDernierCoup();
         	if (score > bestScore) {
         		bestScore = score;
 				bestMove = coups.get(i);
@@ -296,10 +249,6 @@ public class AlphaBeta extends AlgoRecherche{
         }  
 		return bestMove;  
     }
-    
-    //Cette fonction permet de vérifier qu'une case n'a pas déjà été prise dans les tours
-    //précédents.Cela pour éviter des traitements inutiles dans la partie PRIO et gagner 
-    //en performance
     
     public boolean cetteSousGrilleNATElleJamaisEtePrise (Plateau  _plateau, int colonne, int ligne) {
     	//Nous remontons la partie jusqu'au 5ème coup car il faut dans un situation
@@ -312,21 +261,6 @@ public class AlphaBeta extends AlgoRecherche{
     	}
     //renvoie true s'il la sous-grille n'a pas été prise par le passé	
     return true;
-    }
-    
-    //fonction permettant de récupérer la colonne et la ligne du dernier coup pour faire
-    //des traitement
-    public boolean LaTechnique (Plateau  _plateau, Coup coup) {
-    			
-    			int col = ((CoupTicTacToe)coup).getColonne();
-    			int lig = ((CoupTicTacToe)coup).getLigne();
-    			
-    			//On détermine la sous-grille dans laquelle le prochain coup devra être joué.
-    			
-    			int c = col % 3;
-    			int l = lig % 3;
-    			
-    			return ((GrilleTicTacToe9x9)_plateau).isSousGrillePrise(_plateau, c ,l);
     }
 }
         

@@ -346,6 +346,95 @@ public class GrilleTicTacToe9x9 extends Plateau {
 
         return true;
     }
+    
+    //fonction permettant de savoir si la sous-grille à été remportée ou est pleine (égalité).
+    public boolean isSousGrillePrise(Plateau  _plateau, int c, int l) {        
+    	
+    	//Nous pensons avoir repéré une faiblesse au niveau de l'environement de travail
+    	//les attributs Jeton[][] grille9x9 et Jeton[][] grille3x3 sont des matrices de Jeton
+    	//Si ces attribut avaient été des listes nous aurions pu utiliser les boucles
+    	//foreach et ainsi rendre notre code plus élégant et performant :
+    	
+    	/*for(Jeton[] tab : grille3x3){
+    		for(Jeton j : tab) {
+    			if (j == null) return false;
+    		}
+    	}
+    	return true;*/
+    	
+    	
+    	if(grille3x3[c][l] != null) return true;
+    	if (c == 0) {
+    		if (l == 0) {
+    			for (int a = 0; a < 3; a++) {
+    				for (int b = 0; b < 3; b++) {
+    					if (grille9x9[a][b] == null) return false;
+    				}
+    			}
+    		}
+    		else if (l == 1) {
+    			for (int a = 0; a < 3; a++) {
+    				for (int b = 3; b < 6; b++) {
+    					if (grille9x9[a][b] == null) return false;
+    				}
+    			}
+    		}
+    		else if (l == 2) {
+    			for (int a = 0; a < 3; a++) {
+    				for (int b = 6; b < 9; b++) {
+    					if (grille9x9[a][b] == null) return false;
+    				}
+    			}
+    		}
+    	}
+    	if (c == 1) {
+    		if (l == 0) {
+    			for (int a = 3; a < 6; a++) {
+    				for (int b = 0; b < 3; b++) {
+    					if (grille9x9[a][b] == null) return false;
+    				}
+    			}
+    		}
+    		else if (l == 1) {
+    			for (int a = 3; a < 6; a++) {
+    				for (int b = 3; b < 6; b++) {
+    					if (grille9x9[a][b] == null) return false;
+    				}
+    			}
+    		}
+    		else if (l == 2) {
+    			for (int a = 3; a < 6; a++) {
+    				for (int b = 6; b < 9; b++) {
+    					if (grille9x9[a][b] == null) return false;
+    				}
+    			}
+    		}
+    	}
+    	if (c == 2) {
+    		if (l == 0) {
+    			for (int a = 6; a < 9; a++) {
+    				for (int b = 0; b < 3; b++) {
+    					if (grille9x9[a][b] == null) return false;
+    				}
+    			}
+    		}
+    		else if (l == 1) {
+    			for (int a = 6; a < 9; a++) {
+    				for (int b = 3; b < 7; b++) {
+    					if (grille9x9[a][b] == null) return false;
+    				}
+    			}
+    		}
+    		else if (l == 2) {
+    			for (int a = 6; a < 9; a++) {
+    				for (int b = 6; b < 9; b++) {
+    					if (grille9x9[a][b] == null) return false;
+    				}
+    			}
+    		}
+    	}
+        return true;    
+    }
 
     @Override
     public Joueur vainqueur() {

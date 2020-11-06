@@ -11,30 +11,40 @@ package tictactoecodingame;
 public class Player {
 
     public static void main(String args[]) {
-        
-        JoueurHumain humain = new JoueurHumain("Humain");
     	
-        JoueurOrdi joueurAlpha = new JoueurOrdi("Alpha");
+    	long tempsDebut, tempsFin;
+        double seconds;
+    	
+        JoueurOrdi joueurAlphaBetaTouteCoupe = new JoueurOrdi("AlphaBetaTouteCoupe");
         
-        JoueurOrdi joueurAlea2 = new JoueurOrdi("ALEA");
+        JoueurOrdi joueurAlgoRechercheAleatoire = new JoueurOrdi("Alea");
        
         GrilleTicTacToe9x9 grille = new GrilleTicTacToe9x9();
         
         // Remplacer ici l'algorithme aléatoire par votre algorithme. 
         // Créer une nouvelle classe qui hérite de la class AlgoRecherche
         //AlgoRechercheAleatoire alea  = new AlgoRechercheAleatoire( );   // L'ordinateur joue au hasard
-        AlgoRechercheAleatoire alea2  = new AlgoRechercheAleatoire( );
-        AlphaBeta alpha = new AlphaBeta(grille, joueurAlpha, joueurAlea2);
+        AlgoRechercheAleatoire alea  = new AlgoRechercheAleatoire();
         
-        joueurAlpha.setAlgoRecherche(alpha);                      
-        joueurAlea2.setAlgoRecherche(alea2);
+        AlphaBetaTouteCoupe alphaBetaTouteCoupe = new AlphaBetaTouteCoupe(grille, joueurAlphaBetaTouteCoupe, joueurAlgoRechercheAleatoire);
+        
+        joueurAlphaBetaTouteCoupe.setAlgoRecherche(alphaBetaTouteCoupe);
+        
+        joueurAlgoRechercheAleatoire.setAlgoRecherche(alea); 
          
-        Arbitre a = new Arbitre(grille, joueurAlpha , joueurAlea2);
-       
+        Arbitre a = new Arbitre(grille, joueurAlphaBetaTouteCoupe , joueurAlgoRechercheAleatoire);
+        
         //a.startNewGame(true);    // Demarre une partie en affichant la grille du jeu
-       
-       // Pour lancer un tournooi de 100 parties en affichant la grille du jeu
-       a.startTournament(300 , true);
+        
+        //On lance un chronomètre pour mesurer les performances sur 2000 parties
+        //2000 parties pour réduire au maximum la variance des résultats 
+        tempsDebut = System.nanoTime();
+        // Pour lancer un tournoi de X parties en affichant la grille du jeu
+        a.startTournament(2000 , true);
+        
+        tempsFin = System.nanoTime();
+        seconds = (tempsFin - tempsDebut) / 1000000000F;
+        System.out.println("Opération effectuée en: "+ Double.toString(seconds) + "secondes.");
         
     }
 }
